@@ -44,7 +44,17 @@ with open("/Users/aliny/Desktop/python-challenge/PyPoll/election_data.csv", "r")
         #if line[2] is O'Tooley, add 1 to the total number of O'Tooley votes
         if line[2] ==  "O'Tooley":
             otooleyVotes += 1
-        
+
+    #find the winner of the elec 
+    if max(khanVotes, otooleyVotes, liVotes, correyVotes) == correyVotes:
+        print("Winner: Correy")
+    elif max(khanVotes, otooleyVotes, liVotes, correyVotes) == liVotes:
+        print("Winner: Li")
+    elif max(khanVotes, otooleyVotes, liVotes, correyVotes) == khanVotes:
+        print("Winner: Khan")
+    else:
+        print("Winner: O'Tooley") 
+
     #print the total number of votes
     print("Total Votes :", numVotes)
     #set() allows me to print a filter out the repititions in a list 
@@ -77,6 +87,15 @@ with open("/Users/aliny/Desktop/python-challenge/PyPoll/election_data.csv", "r")
     #print the total number of O'Tooley votes along with the percentage of his votes
     print("O'Tooley: " + "{0:.0%}".format(otooleyVotes/numVotes) + " (" + str(otooleyVotes) + ")")
 
+    #find the winner of the election
+    if max(khanVotes, otooleyVotes, liVotes, correyVotes) == correyVotes:
+        print("Winner: Correy")
+    elif max(khanVotes, otooleyVotes, liVotes, correyVotes) == liVotes:
+        print("Winner: Li")
+    elif max(khanVotes, otooleyVotes, liVotes, correyVotes) == khanVotes:
+        print("Winner: Khan")
+    else:
+        print("Winner: O'Tooley") 
     #close the file
     file.close()
 
