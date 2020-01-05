@@ -1,6 +1,9 @@
 #import the csv module so that we may read the csv file
 import csv
-
+#import the sys module so that we can redirect our output
+import sys
+#import the os module so that we can open a text file when we run our script
+import os
 #open the csv file and pass it the variable 'election'
 with open("/Users/aliny/Desktop/python-challenge/PyPoll/election_data.csv", "r") as election:
     #initialize the varibale that we will use to read and loop throught the csv file
@@ -54,3 +57,28 @@ with open("/Users/aliny/Desktop/python-challenge/PyPoll/election_data.csv", "r")
     print("Li: " + "{0:.0%}".format(liVotes/numVotes) + " (" + str(liVotes) + ")")
     #print the total number of O'Tooley votes along with the percentage of his votes
     print("O'Tooley: " + "{0:.0%}".format(otooleyVotes/numVotes) + " (" + str(otooleyVotes) + ")")
+
+    #create the text file that we will use to write the final results to
+    file = open('finalText', 'w+')
+
+    #write the following lines to that file
+    sys.stdout = file
+
+    #print the total number of votes
+    print("Total Votes :", numVotes)
+    #set() allows me to print a filter out the repititions in a list 
+    #print(sorted(set(candidates)))
+    #print the total number of Khan votes along with the percentage of his votes
+    print("Khan: " + "{0:.0%}".format(khanVotes/numVotes) + " (" + str(khanVotes) + ")")
+    #print the total number of Correy votes along with the percentage of his votes
+    print("Correy: " + "{0:.0%}".format(correyVotes/numVotes) + " (" + str(correyVotes) + ")")
+    #print the total number of Li votes along with the percentage of his votes
+    print("Li: " + "{0:.0%}".format(liVotes/numVotes) + " (" + str(liVotes) + ")")
+    #print the total number of O'Tooley votes along with the percentage of his votes
+    print("O'Tooley: " + "{0:.0%}".format(otooleyVotes/numVotes) + " (" + str(otooleyVotes) + ")")
+
+    #close the file
+    file.close()
+
+    #open the file in the new text window
+    os.system('notepad.exe finalText')
